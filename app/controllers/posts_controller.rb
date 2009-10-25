@@ -1,19 +1,23 @@
 class PostsController < ApplicationController
+  before_filter :find_post,
+    :only => [:show, :edit, :update, :destroy]
+  before_filter :adjust_format_for_iphone
+
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.all(:all, :order => 'created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
+      format.iphone # index.iphone.erb
     end
   end
 
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +38,6 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
   end
 
   # POST /posts
@@ -44,7 +47,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        flash[:notice] = 'Post was successfully created.'
+        flash[:notice] = 'Your post was successfully created.'
         format.html { redirect_to(@post) }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
@@ -57,7 +60,6 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
-    @post = Post.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -74,7 +76,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.xml
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|
@@ -82,4 +83,16 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def adjust_format_for_iphone
+    if request.env['HTTP_USER_AGENT'] &&
+      request.env['HTTP_USER_AGENT'][/iPhone/]
+      request.format = :iphone
+    end
+  end
+  
+  private
+    def find_post
+      @post = Post.find(params[:id])
+    end
 end

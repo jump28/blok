@@ -285,3 +285,1059 @@ ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
 Rendered rescues/_trace (68.0ms)
 Rendered rescues/_request_and_response (1.0ms)
 Rendering rescues/layout (not_found)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-08-16 10:07:32) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (10.0ms)
+Completed in 61ms (View: 39, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-23 15:15:57) [GET]
+Rendering home/index
+Completed in 52ms (View: 50, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-08-23 15:16:00) [GET]
+  [4;36;1mPost Load (14.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 2746ms (View: 2559, DB: 14) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-08-23 15:16:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 98ms (View: 87, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2009-08-23 15:16:12) [GET]
+  Parameters: {"post_id"=>"1"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering comments/index
+  [4;36;1mComment Load (2.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 90ms (View: 42, DB: 3) | 200 OK [http://localhost/posts/1/comments]
+
+
+Processing CommentsController#new (for 127.0.0.1 at 2009-08-23 15:16:15) [GET]
+  Parameters: {"post_id"=>"1"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering comments/new
+Completed in 43ms (View: 7, DB: 1) | 200 OK [http://localhost/posts/1/comments/new]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-08-23 15:16:21) [POST]
+  Parameters: {"commit"=>"Create", "post_id"=>"1", "authenticity_token"=>"C18zrn6W3vRc78+90sd3g+FJ6c6FXTuSymgxtnmL5GM=", "comment"=>{"body"=>"joep", "commenter"=>"J"}}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mComment Create (0.0ms)[0m   [0mINSERT INTO "comments" ("updated_at", "body", "post_id", "commenter", "created_at") VALUES('2009-08-23 13:16:21', 'joep', 1, 'J', '2009-08-23 13:16:21')[0m
+Redirected to http://localhost:3000/posts/1/comments/1
+Completed in 23ms (DB: 1) | 302 Found [http://localhost/posts/1/comments]
+
+
+Processing CommentsController#show (for 127.0.0.1 at 2009-08-23 15:16:23) [GET]
+  Parameters: {"post_id"=>"1", "id"=>"1"}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mComment Load (1.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments"."id" = 1 AND ("comments".post_id = 1)) [0m
+Rendering comments/show
+Completed in 43ms (View: 14, DB: 2) | 200 OK [http://localhost/posts/1/comments/1]
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2009-08-23 17:44:37) [GET]
+  Parameters: {"post_id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering comments/index
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 20ms (View: 7, DB: 0) | 200 OK [http://localhost/posts/1/comments]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-08-23 17:44:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 29ms (View: 16, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-08-23 17:45:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (1.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 37ms (View: 17, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-08-23 17:45:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (1.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 54ms (View: 27, DB: 2) | 200 OK [http://localhost/posts/1]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-10-24 14:16:42) [GET]
+Rendering home/index
+Completed in 46ms (View: 44, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-24 14:16:46) [GET]
+  [4;36;1mPost Load (19.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 2649ms (View: 2519, DB: 19) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 14:18:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 138ms (View: 127, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2009-10-24 14:18:31) [GET]
+  Parameters: {"post_id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering comments/index
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 54ms (View: 33, DB: 0) | 200 OK [http://localhost/posts/1/comments]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 14:18:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 30ms (View: 17, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-24 14:18:41) [GET]
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 30ms (View: 13, DB: 1) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-10-24 14:18:45) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (5.0ms)
+Completed in 22ms (View: 14, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-24 14:24:13) [GET]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 15ms (View: 6, DB: 1) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-10-24 14:24:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Rendered posts/_form (3.0ms)
+Completed in 23ms (View: 11, DB: 0) | 200 OK [http://localhost/posts/1/edit]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-24 14:46:09) [GET]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 15ms (View: 6, DB: 1) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 14:46:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPost Load (2.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 2) [0m
+Completed in 25ms (View: 14, DB: 2) | 200 OK [http://localhost/posts/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20090814210119)
+Migrating to CreateComments (20090814215319)
+Migrating to CreateTags (20091024125109)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091024125109')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("comments")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("posts")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("tags")[0m
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-10-24 15:00:41) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "tags" WHERE ("tags".post_id = 2) [0m
+
+ActionView::TemplateError (undefined local variable or method `post_form' for #<ActionView::Base:0x575f238>) on line #18 of app/views/posts/_form.html.erb:
+15:     <%= f.text_area :content %>
+16:   </p>
+17:   <h3>Tags</h3>
+18:   <% post_form.fields_for :tags do |tag_form| %>
+19:     <p>
+20:       <%= tag_form.label :name, 'Tag:' %>
+21:       <%= tag_form.text_field :name %>
+
+    app/views/posts/_form.html.erb:18
+    app/views/posts/_form.html.erb:2
+    app/views/posts/edit.html.erb:3
+
+Rendered rescues/_trace (144.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-24 15:03:47) [GET]
+  [4;35;1mPost Load (2.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 50ms (View: 20, DB: 2) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:03:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (1.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 24ms (View: 10, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-10-24 15:03:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "tags" WHERE ("tags".post_id = 1) [0m
+
+ActionView::TemplateError (undefined local variable or method `post_form' for #<ActionView::Base:0x57dbbd0>) on line #18 of app/views/posts/_form.html.erb:
+15:     <%= f.text_area :content %>
+16:   </p>
+17:   <h3>Tags</h3>
+18:   <% post_form.fields_for :tags do |tag_form| %>
+19:     <p>
+20:       <%= tag_form.label :name, 'Tag:' %>
+21:       <%= tag_form.text_field :name %>
+
+    app/views/posts/_form.html.erb:18
+    app/views/posts/_form.html.erb:2
+    app/views/posts/edit.html.erb:3
+
+Rendered rescues/_trace (76.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-10-24 15:06:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "tags" WHERE ("tags".post_id = 1) [0m
+
+ActionView::TemplateError (undefined local variable or method `post' for #<ActionView::Base:0x5635574>) on line #6 of app/views/posts/_form.html.erb:
+3:   <%= post_form.error_messages %>
+4: 
+5:   <p>
+6:     <%= post.form.label :name %><br />
+7:     <%= post.form.text_field :name %>
+8:   </p>
+9:   <p>
+
+    app/views/posts/_form.html.erb:6
+    app/views/posts/_form.html.erb:2
+    app/views/posts/edit.html.erb:3
+
+Rendered rescues/_trace (72.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-10-24 15:07:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "tags" WHERE ("tags".post_id = 1) [0m
+Rendered posts/_form (17.0ms)
+Completed in 37ms (View: 24, DB: 1) | 200 OK [http://localhost/posts/1/edit]
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-10-24 15:07:18) [PUT]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"ntMr0p/ypcl5Ho03kaME72v/9bSQtBUwnFVahNNYaIM=", "post"=>{"tags_attributes"=>{"0"=>{"name"=>"Also"}}, "name"=>"Test", "title"=>"Testing", "content"=>"Testing"}, "id"=>"1"}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mTag Create (1.0ms)[0m   [0mINSERT INTO "tags" ("name", "updated_at", "post_id", "created_at") VALUES('Also', '2009-10-24 13:07:18', 1, '2009-10-24 13:07:18')[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 29ms (DB: 2) | 302 Found [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:07:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 23ms (View: 12, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-24 15:07:30) [GET]
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 16ms (View: 7, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:07:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 91ms (View: 11, DB: 2) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:16:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 434ms (View: 418, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:33:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 62ms (View: 41, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:39:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+ERROR: compiling _run_erb_app47views47posts47show46html46erb RAISED compile error
+B:/Documents/RoR/blok/app/views/posts/show.html.erb:28: syntax error, unexpected ')', expecting ']'
+ form_for [@post, Comment.new) do |f| ; @output_buffer.concat "\n"
+                              ^
+B:/Documents/RoR/blok/app/views/posts/show.html.erb:50: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47posts47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Name:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @post.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Title:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @post.title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Content:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @post.content ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<h3>Comments</h3>\n"
+ @post.comments.each do |c| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    <b>"; @output_buffer.concat((h c.commenter ).to_s); @output_buffer.concat "</b> said<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( time_ago_in_words(c.created_at) ).to_s); @output_buffer.concat " ago\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat((h c.body ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+ form_for [@post, Comment.new) do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :commenter ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :commenter ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :body ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :body ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.submit "Add Comment" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Edit', edit_post_path(@post) ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Back', posts_path ).to_s); @output_buffer.concat " | \n"
+@output_buffer.concat(( link_to 'Manage Comments', post_comments_path(@post) ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: B:/Documents/RoR/blok/app/views/posts/show.html.erb:50:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:260:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:343:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:257:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1246:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:947:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:107:in `respond_to'
+B:/Documents/RoR/blok/app/controllers/posts_controller.rb:19:in `show'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+B:/Documents/RoR/blok/app/views/posts/show.html.erb:28: syntax error, unexpected ')', expecting ']'
+ form_for [@post, Comment.new) do |f| ; @output_buffer.concat "\n"
+                              ^
+B:/Documents/RoR/blok/app/views/posts/show.html.erb:50: syntax error, unexpected kENSURE, expecting $end) on line #28 of app/views/posts/show.html.erb:
+25:   </p>
+26: <% end %>
+27: 
+28: <% form_for [@post, Comment.new) do |f| %>
+29: 
+30:   <p>
+31:     <%= f.label :commenter %><br />
+
+    app/views/posts/show.html.erb:50:in `compile!'
+    app/controllers/posts_controller.rb:19:in `show'
+
+Rendered rescues/_trace (68.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:39:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+ERROR: compiling _run_erb_app47views47posts47show46html46erb RAISED compile error
+B:/Documents/RoR/blok/app/views/posts/show.html.erb:28: syntax error, unexpected ')', expecting ']'
+ form_for [@post, @comment) do |f| ; @output_buffer.concat "\n"
+                           ^
+B:/Documents/RoR/blok/app/views/posts/show.html.erb:50: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47posts47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Name:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @post.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Title:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @post.title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Content:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @post.content ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<h3>Comments</h3>\n"
+ @post.comments.each do |c| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    <b>"; @output_buffer.concat((h c.commenter ).to_s); @output_buffer.concat "</b> said<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( time_ago_in_words(c.created_at) ).to_s); @output_buffer.concat " ago\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat((h c.body ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+ form_for [@post, @comment) do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :commenter ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :commenter ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :body ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :body ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.submit "Add Comment" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Edit', edit_post_path(@post) ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Back', posts_path ).to_s); @output_buffer.concat " | \n"
+@output_buffer.concat(( link_to 'Manage Comments', post_comments_path(@post) ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: B:/Documents/RoR/blok/app/views/posts/show.html.erb:50:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:260:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:343:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:257:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1246:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:947:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:107:in `respond_to'
+B:/Documents/RoR/blok/app/controllers/posts_controller.rb:19:in `show'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+B:/Documents/RoR/blok/app/views/posts/show.html.erb:28: syntax error, unexpected ')', expecting ']'
+ form_for [@post, @comment) do |f| ; @output_buffer.concat "\n"
+                           ^
+B:/Documents/RoR/blok/app/views/posts/show.html.erb:50: syntax error, unexpected kENSURE, expecting $end) on line #28 of app/views/posts/show.html.erb:
+25:   </p>
+26: <% end %>
+27: 
+28: <% form_for [@post, @comment) do |f| %>
+29: 
+30:   <p>
+31:     <%= f.label :commenter %><br />
+
+    app/views/posts/show.html.erb:50:in `compile!'
+    app/controllers/posts_controller.rb:19:in `show'
+
+Rendered rescues/_trace (70.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:40:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #28 of app/views/posts/show.html.erb:
+25:   </p>
+26: <% end %>
+27: 
+28: <% form_for ([@post, @comment]) do |f| %>
+29: 
+30:   <p>
+31:     <%= f.label :commenter %><br />
+
+    app/views/posts/show.html.erb:28
+    app/controllers/posts_controller.rb:19:in `show'
+
+Rendered rescues/_trace (73.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:45:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 148ms (View: 24, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-10-24 15:45:59) [POST]
+  Parameters: {"commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"ntMr0p/ypcl5Ho03kaME72v/9bSQtBUwnFVahNNYaIM=", "comment"=>{"body"=>"Testing2", "commenter"=>"Test"}}
+  [4;35;1mPost Load (2.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mComment Create (2.0ms)[0m   [0;1mINSERT INTO "comments" ("updated_at", "body", "post_id", "commenter", "created_at") VALUES('2009-10-24 13:45:59', 'Testing2', 1, 'Test', '2009-10-24 13:45:59')[0m
+Redirected to http://localhost:3000/posts/1/comments/2
+Completed in 49ms (DB: 4) | 302 Found [http://localhost/posts/1/comments]
+
+
+Processing CommentsController#show (for 127.0.0.1 at 2009-10-24 15:46:00) [GET]
+  Parameters: {"post_id"=>"1", "id"=>"2"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."id" = 2 AND ("comments".post_id = 1)) [0m
+Rendering comments/show
+Completed in 41ms (View: 8, DB: 0) | 200 OK [http://localhost/posts/1/comments/2]
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2009-10-24 15:46:06) [GET]
+  Parameters: {"post_id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering comments/index
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 23ms (View: 8, DB: 1) | 200 OK [http://localhost/posts/1/comments]
+
+
+Processing CommentsController#show (for 127.0.0.1 at 2009-10-24 15:46:09) [GET]
+  Parameters: {"post_id"=>"1", "id"=>"2"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."id" = 2 AND ("comments".post_id = 1)) [0m
+Rendering comments/show
+Completed in 22ms (View: 3, DB: 1) | 200 OK [http://localhost/posts/1/comments/2]
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2009-10-24 15:46:15) [GET]
+  Parameters: {"post_id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering comments/index
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 24ms (View: 8, DB: 1) | 200 OK [http://localhost/posts/1/comments]
+
+
+Processing CommentsController#show (for 127.0.0.1 at 2009-10-24 15:46:18) [GET]
+  Parameters: {"post_id"=>"1", "id"=>"2"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."id" = 2 AND ("comments".post_id = 1)) [0m
+Rendering comments/show
+Completed in 24ms (View: 4, DB: 1) | 200 OK [http://localhost/posts/1/comments/2]
+
+
+Processing CommentsController#show (for 127.0.0.1 at 2009-10-24 15:47:10) [GET]
+  Parameters: {"post_id"=>"1", "id"=>"2"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."id" = 2 AND ("comments".post_id = 1)) [0m
+Rendering comments/show
+Completed in 45ms (View: 8, DB: 1) | 200 OK [http://localhost/posts/1/comments/2]
+
+
+Processing CommentsController#edit (for 127.0.0.1 at 2009-10-24 15:47:13) [GET]
+  Parameters: {"post_id"=>"1", "id"=>"2"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."id" = 2 AND ("comments".post_id = 1)) [0m
+Rendering comments/edit
+Completed in 40ms (View: 15, DB: 2) | 200 OK [http://localhost/posts/1/comments/2/edit]
+
+
+Processing CommentsController#show (for 127.0.0.1 at 2009-10-24 15:47:20) [GET]
+  Parameters: {"post_id"=>"1", "id"=>"2"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."id" = 2 AND ("comments".post_id = 1)) [0m
+Rendering comments/show
+Completed in 111ms (View: 3, DB: 0) | 200 OK [http://localhost/posts/1/comments/2]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-24 15:47:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 52ms (View: 33, DB: 1) | 200 OK [http://localhost/posts/1/]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 09:26:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 34ms (View: 21, DB: 1) | 200 OK [http://localhost/posts/1/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 09:27:51) [GET]
+  [4;35;1mPost Load (2.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 32ms (View: 13, DB: 2) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-10-25 09:28:02) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (12.0ms)
+Completed in 51ms (View: 18, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-10-25 09:28:07) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"ntMr0p/ypcl5Ho03kaME72v/9bSQtBUwnFVahNNYaIM=", "post"=>{"tags_attributes"=>{"0"=>{"name"=>"test"}}, "name"=>"", "title"=>"", "content"=>""}}
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (3.0ms)
+Completed in 55ms (View: 6, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 09:54:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (1.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 34ms (View: 22, DB: 2) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 09:54:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mComment Load (1.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 31ms (View: 17, DB: 2) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 09:54:45) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 2) [0m
+Completed in 43ms (View: 22, DB: 2) | 200 OK [http://localhost/posts/2]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-10-25 13:15:24) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (21.0ms)
+Completed in 52ms (View: 34, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-10-25 13:16:30) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (15.0ms)
+Completed in 38ms (View: 23, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-10-25 13:23:16) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"ntMr0p/ypcl5Ho03kaME72v/9bSQtBUwnFVahNNYaIM=", "post"=>{"tags_attributes"=>{"0"=>{"name"=>""}}, "name"=>"Joep", "title"=>"Apples versus Pears", "content"=>"Pears rot faster than apples. Why? Because oxygen finds an easier way to the pear's core than to the apple's. As a result, the pear allows more oxygen on the inside and rots faster.\r\n\r\nIn business, a very similar thing is happening with Apple and Microsoft, or any other tech company for that matter. Apple is more resistant to bad news (i.e. Oxygen represents bad news for fruit), compared to Microsoft, Yahoo, and other companies.\r\n\r\nTake a look at some recent news from Apple.\r\n\r\n    * The health of Steve Jobs remains a complete mystery. Something is happening, yet nobody really knows what exactly.\r\n    * Apple does not deliver on expectations with their update iphone (I really like this movie). In fact there is plenty of room for improvement of the iphone.\r\n    * The distribution and management of applications on the apple iphone went bad. Some popular applications are not allowed anymore.\r\n    * Apple secretly added a 'kill-switch' to its iphone software. Something other companies like Microsoft would never ever get away with. Steve Jobs did provide some more information on it, but that was it. Nobody knows how it really works.\r\n    * Apple's refund policy is not up to par with common standards.\r\n    * Its new service entitle MobileMe which allows for the seamless syncing of computers, laptops, mobile phones and the web is not working. Steve Jobs even sent out a letter in which he promises to improve things. The service is still available though, as if nothing happened.\r\n    * Microsoft managed to sign a deal with Netflix, seriously limiting the potential market success for Apple TV. \r\n\r\nStill...\r\n\r\n    * Apple is booming as ever before.\r\n    * Apple is worth more on the stock market than Google. \r\n    * People are happily discussing possible new ventures for Apple to start, such as wireless syncing/streaming of music between phones and computers (knowing the problems they have with MobileMe, I would think twice before allowing Apple to mess up my music library, but that is just me). \r\n\r\nAll these links above (I realize there are many) refer to well-written, powerful, and popular news sources. People must know Apple is not always delivering what it promises. I am not judging Apple. The company has created beautiful products and has grown tremendously; it may just be experiencing growing pains. However, what I find curious is that Apple seems untouched by all this publicity. How much stronger can a brand get? Apple appears immune for bad news. It seems that this particular Apple can simply not go bad.\r\n\r\nOr can it?\r\n\r\nScientific research provides an explanation. People who are deeply committed to a brand tend to counter argue negative publicity. In other words, because Apple has such a huge and committed fan base, its customers a.k.a. fans, manage to prevent the bad news from spreading too widely, or becoming actual issues.\r\n\r\nApples withstand rotting longer and thus, they last longer. So perhaps, when naming the company in the late 1970s, Steve Jobs was ahead in the natural sciences as well, who knows? Still, Apple must make sure that its customers remain fans. As soon as the fan base weakens, and its customers turn into ordinary customers, they might be facing some new challenges.\r\n\r\nIn any case, it will be very interesting to see if some of the bad news will harm Apple, or if the company will continue to flourish as before."}}
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO "posts" ("name", "updated_at", "title", "content", "created_at") VALUES('Joep', '2009-10-25 12:23:16', 'Apples versus Pears', 'Pears rot faster than apples. Why? Because oxygen finds an easier way to the pear''s core than to the apple''s. As a result, the pear allows more oxygen on the inside and rots faster.
+
+In business, a very similar thing is happening with Apple and Microsoft, or any other tech company for that matter. Apple is more resistant to bad news (i.e. Oxygen represents bad news for fruit), compared to Microsoft, Yahoo, and other companies.
+
+Take a look at some recent news from Apple.
+
+ * The health of Steve Jobs remains a complete mystery. Something is happening, yet nobody really knows what exactly.
+ * Apple does not deliver on expectations with their update iphone (I really like this movie). In fact there is plenty of room for improvement of the iphone.
+ * The distribution and management of applications on the apple iphone went bad. Some popular applications are not allowed anymore.
+ * Apple secretly added a ''kill-switch'' to its iphone software. Something other companies like Microsoft would never ever get away with. Steve Jobs did provide some more information on it, but that was it. Nobody knows how it really works.
+ * Apple''s refund policy is not up to par with common standards.
+ * Its new service entitle MobileMe which allows for the seamless syncing of computers, laptops, mobile phones and the web is not working. Steve Jobs even sent out a letter in which he promises to improve things. The service is still available though, as if nothing happened.
+ * Microsoft managed to sign a deal with Netflix, seriously limiting the potential market success for Apple TV. 
+
+Still...
+
+ * Apple is booming as ever before.
+ * Apple is worth more on the stock market than Google. 
+ * People are happily discussing possible new ventures for Apple to start, such as wireless syncing/streaming of music between phones and computers (knowing the problems they have with MobileMe, I would think twice before allowing Apple to mess up my music library, but that is just me). 
+
+All these links above (I realize there are many) refer to well-written, powerful, and popular news sources. People must know Apple is not always delivering what it promises. I am not judging Apple. The company has created beautiful products and has grown tremendously; it may just be experiencing growing pains. However, what I find curious is that Apple seems untouched by all this publicity. How much stronger can a brand get? Apple appears immune for bad news. It seems that this particular Apple can simply not go bad.
+
+Or can it?
+
+Scientific research provides an explanation. People who are deeply committed to a brand tend to counter argue negative publicity. In other words, because Apple has such a huge and committed fan base, its customers a.k.a. fans, manage to prevent the bad news from spreading too widely, or becoming actual issues.
+
+Apples withstand rotting longer and thus, they last longer. So perhaps, when naming the company in the late 1970s, Steve Jobs was ahead in the natural sciences as well, who knows? Still, Apple must make sure that its customers remain fans. As soon as the fan base weakens, and its customers turn into ordinary customers, they might be facing some new challenges.
+
+In any case, it will be very interesting to see if some of the bad news will harm Apple, or if the company will continue to flourish as before.', '2009-10-25 12:23:16')[0m
+Redirected to http://localhost:3000/posts/3
+Completed in 22ms (DB: 1) | 302 Found [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 13:23:17) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 3) [0m
+Completed in 258ms (View: 238, DB: 1) | 200 OK [http://localhost/posts/3]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-10-25 13:23:42) [GET]
+Rendering home/index
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 13:23:45) [GET]
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" [0m
+
+NameError (uninitialized constant Mime::IPHONE):
+  app/controllers/posts_controller.rb:13:in `index'
+  app/controllers/posts_controller.rb:10:in `index'
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 13:31:01) [GET]
+  [4;36;1mPost Load (3.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+
+NameError (uninitialized constant Mime::IPHONE):
+  app/controllers/posts_controller.rb:14:in `index'
+  app/controllers/posts_controller.rb:11:in `index'
+
+Rendered rescues/_trace (54.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-10-25 13:33:44) [GET]
+Rendering home/index
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 13:33:48) [GET]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 68ms (View: 23, DB: 1) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-10-25 13:33:58) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (51.0ms)
+Completed in 75ms (View: 61, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 13:34:09) [GET]
+  [4;35;1mPost Load (3.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 51ms (View: 22, DB: 3) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 13:48:43) [GET]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+
+ActionView::TemplateError (undefined method `author' for #<Post:0x5495f84>) on line #10 of app/views/posts/_post.html.erb:
+7: <h2><%= link_to_unless_current post.title, post %>
+8: </h2>
+9: Posted at: <%= post.created_at %> 
+10: by <strong><%= post.author %></strong>
+11: <br />
+12: 
+13: <%= post.body %>
+
+    app/views/posts/_post.html.erb:10
+    app/views/posts/index.html.erb:7
+    app/controllers/posts_controller.rb:11:in `index'
+
+Rendered rescues/_trace (80.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 13:54:35) [GET]
+  [4;35;1mPost Load (2.0ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+
+ActionView::TemplateError (undefined method `body' for #<Post:0x54df2d8>) on line #10 of app/views/posts/_post.html.erb:
+7: by <strong><%= post.name %></strong>
+8: <br />
+9: 
+10: <%= post.body %>
+11: 
+12: <hr />
+
+    app/views/posts/_post.html.erb:10
+    app/views/posts/index.html.erb:3
+    app/controllers/posts_controller.rb:11:in `index'
+
+Rendered rescues/_trace (154.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 13:55:03) [GET]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (5.0ms)
+Rendered posts/_post (1.0ms)
+Rendered posts/_post (1.0ms)
+Completed in 23ms (View: 13, DB: 1) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 13:55:11) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 3) [0m
+Completed in 60ms (View: 30, DB: 1) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 13:57:54) [GET]
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (4.0ms)
+Rendered posts/_post (1.0ms)
+Rendered posts/_post (1.0ms)
+Completed in 18ms (View: 9, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 14:06:56) [GET]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (4.0ms)
+Rendered posts/_post (1.0ms)
+Rendered posts/_post (1.0ms)
+Completed in 34ms (View: 13, DB: 1) | 200 OK [http://localhost/]
