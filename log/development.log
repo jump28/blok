@@ -1341,3 +1341,134 @@ Rendered posts/_post (4.0ms)
 Rendered posts/_post (1.0ms)
 Rendered posts/_post (1.0ms)
 Completed in 34ms (View: 13, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 19:31:25) [GET]
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (4.0ms)
+Rendered posts/_post (1.0ms)
+Rendered posts/_post (1.0ms)
+Completed in 23ms (View: 14, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 19:32:31) [GET]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (5.0ms)
+Rendered posts/_post (1.0ms)
+Rendered posts/_post (1.0ms)
+Completed in 22ms (View: 12, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 19:33:14) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 3) [0m
+Completed in 42ms (View: 21, DB: 0) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 19:33:21) [GET]
+  [4;35;1mPost Load (3.0ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (4.0ms)
+Rendered posts/_post (1.0ms)
+Rendered posts/_post (1.0ms)
+Completed in 41ms (View: 10, DB: 3) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 19:33:25) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 3) [0m
+Completed in 22ms (View: 10, DB: 1) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 19:46:11) [GET]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (5.0ms)
+Rendered posts/_post (1.0ms)
+Rendered posts/_post (1.0ms)
+Completed in 23ms (View: 13, DB: 1) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 19:46:27) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 3) [0m
+Completed in 21ms (View: 11, DB: 0) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-10-25 19:46:36) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (2.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "tags" WHERE ("tags".post_id = 3) [0m
+Rendered posts/_form (12.0ms)
+Completed in 56ms (View: 25, DB: 3) | 200 OK [http://localhost/posts/3/edit]
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-10-25 19:46:53) [PUT]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"ntMr0p/ypcl5Ho03kaME72v/9bSQtBUwnFVahNNYaIM=", "post"=>{"tags_attributes"=>{"0"=>{"name"=>""}}, "name"=>"", "title"=>"Apples versus Pears", "content"=>"Pears rot faster than apples. Why? Because oxygen finds an easier way to the pear's core than to the apple's. As a result, the pear allows more oxygen on the inside and rots faster.\r\n\r\nIn business, a very similar thing is happening with Apple and Microsoft, or any other tech company for that matter. Apple is more resistant to bad news (i.e. Oxygen represents bad news for fruit), compared to Microsoft, Yahoo, and other companies.\r\n\r\nTake a look at some recent news from Apple.\r\n\r\n    * The health of Steve Jobs remains a complete mystery. Something is happening, yet nobody really knows what exactly.\r\n    * Apple does not deliver on expectations with their update iphone (I really like this movie). In fact there is plenty of room for improvement of the iphone.\r\n    * The distribution and management of applications on the apple iphone went bad. Some popular applications are not allowed anymore.\r\n    * Apple secretly added a 'kill-switch' to its iphone software. Something other companies like Microsoft would never ever get away with. Steve Jobs did provide some more information on it, but that was it. Nobody knows how it really works.\r\n    * Apple's refund policy is not up to par with common standards.\r\n    * Its new service entitle MobileMe which allows for the seamless syncing of computers, laptops, mobile phones and the web is not working. Steve Jobs even sent out a letter in which he promises to improve things. The service is still available though, as if nothing happened.\r\n    * Microsoft managed to sign a deal with Netflix, seriously limiting the potential market success for Apple TV. \r\n\r\nStill...\r\n\r\n    * Apple is booming as ever before.\r\n    * Apple is worth more on the stock market than Google. \r\n    * People are happily discussing possible new ventures for Apple to start, such as wireless syncing/streaming of music between phones and computers (knowing the problems they have with MobileMe, I would think twice before allowing Apple to mess up my music library, but that is just me). \r\n\r\nAll these links above (I realize there are many) refer to well-written, powerful, and popular news sources. People must know Apple is not always delivering what it promises. I am not judging Apple. The company has created beautiful products and has grown tremendously; it may just be experiencing growing pains. However, what I find curious is that Apple seems untouched by all this publicity. How much stronger can a brand get? Apple appears immune for bad news. It seems that this particular Apple can simply not go bad.\r\n\r\nOr can it?\r\n\r\nScientific research provides an explanation. People who are deeply committed to a brand tend to counter argue negative publicity. In other words, because Apple has such a huge and committed fan base, its customers a.k.a. fans, manage to prevent the bad news from spreading too widely, or becoming actual issues.\r\n\r\nApples withstand rotting longer and thus, they last longer. So perhaps, when naming the company in the late 1970s, Steve Jobs was ahead in the natural sciences as well, who knows? Still, Apple must make sure that its customers remain fans. As soon as the fan base weakens, and its customers turn into ordinary customers, they might be facing some new challenges.\r\n\r\nIn any case, it will be very interesting to see if some of the bad news will harm Apple, or if the company will continue to flourish as before."}, "id"=>"3"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "tags" WHERE ("tags".post_id = 3) [0m
+Rendered posts/_form (15.0ms)
+Completed in 43ms (View: 18, DB: 1) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-10-25 19:47:02) [PUT]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"ntMr0p/ypcl5Ho03kaME72v/9bSQtBUwnFVahNNYaIM=", "post"=>{"tags_attributes"=>{"0"=>{"name"=>""}}, "name"=>"Joep", "title"=>"Apples versus Pears", "content"=>"Pears rot faster than apples. Why? Because oxygen finds an easier way to the pear's core than to the apple's. As a result, the pear allows more oxygen on the inside and rots faster.\r\n\r\nIn business, a very similar thing is happening with Apple and Microsoft, or any other tech company for that matter. Apple is more resistant to bad news (i.e. Oxygen represents bad news for fruit), compared to Microsoft, Yahoo, and other companies.\r\n\r\nTake a look at some recent news from Apple.\r\n\r\n    * The health of Steve Jobs remains a complete mystery. Something is happening, yet nobody really knows what exactly.\r\n    * Apple does not deliver on expectations with their update iphone (I really like this movie). In fact there is plenty of room for improvement of the iphone.\r\n    * The distribution and management of applications on the apple iphone went bad. Some popular applications are not allowed anymore.\r\n    * Apple secretly added a 'kill-switch' to its iphone software. Something other companies like Microsoft would never ever get away with. Steve Jobs did provide some more information on it, but that was it. Nobody knows how it really works.\r\n    * Apple's refund policy is not up to par with common standards.\r\n    * Its new service entitle MobileMe which allows for the seamless syncing of computers, laptops, mobile phones and the web is not working. Steve Jobs even sent out a letter in which he promises to improve things. The service is still available though, as if nothing happened.\r\n    * Microsoft managed to sign a deal with Netflix, seriously limiting the potential market success for Apple TV. \r\n\r\nStill...\r\n\r\n    * Apple is booming as ever before.\r\n    * Apple is worth more on the stock market than Google. \r\n    * People are happily discussing possible new ventures for Apple to start, such as wireless syncing/streaming of music between phones and computers (knowing the problems they have with MobileMe, I would think twice before allowing Apple to mess up my music library, but that is just me). \r\n\r\nAll these links above (I realize there are many) refer to well-written, powerful, and popular news sources. People must know Apple is not always delivering what it promises. I am not judging Apple. The company has created beautiful products and has grown tremendously; it may just be experiencing growing pains. However, what I find curious is that Apple seems untouched by all this publicity. How much stronger can a brand get? Apple appears immune for bad news. It seems that this particular Apple can simply not go bad.\r\n\r\nOr can it?\r\n\r\nScientific research provides an explanation. People who are deeply committed to a brand tend to counter argue negative publicity. In other words, because Apple has such a huge and committed fan base, its customers a.k.a. fans, manage to prevent the bad news from spreading too widely, or becoming actual issues.\r\n\r\nApples withstand rotting longer and thus, they last longer. So perhaps, when naming the company in the late 1970s, Steve Jobs was ahead in the natural sciences as well, who knows? Still, Apple must make sure that its customers remain fans. As soon as the fan base weakens, and its customers turn into ordinary customers, they might be facing some new challenges.\r\n\r\nIn any case, it will be very interesting to see if some of the bad news will harm Apple, or if the company will continue to flourish as before."}, "id"=>"3"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Redirected to http://localhost:3000/posts/3
+Completed in 18ms (DB: 1) | 302 Found [http://localhost/posts/3]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 19:47:04) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 3) [0m
+Completed in 41ms (View: 21, DB: 1) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 21:00:11) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 3) [0m
+Completed in 50ms (View: 28, DB: 2) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-10-25 21:01:25) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 3) [0m
+Completed in 22ms (View: 11, DB: 0) | 200 OK [http://localhost/posts/3]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-10-25 21:01:35) [GET]
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (3.0ms)
+Rendered posts/_post (1.0ms)
+Rendered posts/_post (1.0ms)
+Completed in 18ms (View: 8, DB: 1) | 200 OK [http://localhost/posts/]
