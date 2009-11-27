@@ -1,11 +1,12 @@
 <h2><%=h @post.title %></h2>
 <p>
-  Posted at: <%= @post.created_at %> <br />
-  Written by <%= @post.name %> 
+  Posted <%= time_ago_in_words(@post.created_at) %> ago by <strong><%= @post.name %></strong>
+<br />
+
 </p>  
   <br />
 <p>
-  <%=h @post.content %>
+  <%= @post.content %>
 </p>
 
 <% unless @post.comments.empty? %>

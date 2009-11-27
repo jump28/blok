@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091024125109) do
+ActiveRecord::Schema.define(:version => 20091127144138) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(:version => 20091024125109) do
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wysihat_files", :force => true do |t|
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
